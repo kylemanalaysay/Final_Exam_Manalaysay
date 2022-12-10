@@ -1,0 +1,7 @@
+---
+
+- name: Install Client
+  yum:
+    name:
+      - python3
+    state: latest
