@@ -1,0 +1,20 @@
+---
+
+- hosts: ubuntu_server
+  become: true
+  roles:
+    - openstack_ubuntu
+    - prometheus_ubuntu
+
+- hosts: centos_server
+  become: true
+  roles:
+    - prometheus_centos
+    - openstack_centos
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Change Motd
+    shell: sudo sh -c 'echo "Ansible Managed by kyleandrei"> /etc/motd'
